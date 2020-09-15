@@ -1,0 +1,7 @@
+/.idea
+/.vscode
+/coverage.out
+/telegraf-mysql
+/telegraf-mysql.exe
+/mysql_wsrep
+/mysql_wsrep.exe
