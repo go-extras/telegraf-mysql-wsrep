@@ -9,7 +9,7 @@ import (
 	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/plugins/inputs"
 	"github.com/influxdata/telegraf/plugins/inputs/mysql"
-	"github.com/influxdata/telegraf/plugins/inputs/mysql/v2"
+	v2 "github.com/influxdata/telegraf/plugins/inputs/mysql/v2"
 )
 
 const (

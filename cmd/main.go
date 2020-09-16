@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	_ "github.com/go-extas/telegraf-mysql/plugins/inputs/mysql_wsrep"
+	_ "github.com/go-extras/telegraf-mysql-wsrep/plugins/inputs/mysql_wsrep"
 
 	"github.com/influxdata/telegraf/plugins/common/shim"
 )
@@ -39,21 +39,21 @@ func main() {
 	}
 
 	// create the shim. This is what will run your plugins.
-	shim := shim.New()
+	shm := shim.New()
 
 	// If no config is specified, all imported plugins are loaded.
 	// otherwise follow what the config asks for.
 	// Check for settings from a config toml file,
 	// (or just use whatever plugins were imported above)
-	err = shim.LoadConfig(configFile)
+	err = shm.LoadConfig(configFile)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Err loading input: %s\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Err loading input: %s\n", err)
 		os.Exit(1)
 	}
 
 	// run the input plugin(s) until stdin closes or we receive a termination signal
-	if err := shim.Run(*pollInterval); err != nil {
-		fmt.Fprintf(os.Stderr, "Err: %s\n", err)
+	if err := shm.Run(*pollInterval); err != nil {
+		_, _ = fmt.Fprintf(os.Stderr, "Err: %s\n", err)
 		os.Exit(1)
 	}
 }
