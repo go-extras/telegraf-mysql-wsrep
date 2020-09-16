@@ -20,7 +20,7 @@ jobs:
       id: go
 
     - name: Test
-      run: go test -v .
+      run: go test ./... -race -v
 
     - name: Build
       run: go build -v -o mysql_wsrep cmd/main.go
